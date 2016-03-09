@@ -7,3 +7,6 @@
 [submodule "zsh/.zsh/custom/plugins/k"]
 	path = zsh/.zsh/custom/plugins/k
 	url = https://github.com/supercrabtree/k
+[submodule "tmux/.tmux/plugins/tpm"]
+	path = tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
