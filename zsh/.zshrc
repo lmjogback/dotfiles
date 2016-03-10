@@ -61,34 +61,30 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git gitfast history sudo colored-man-pages zsh_reload tmux-pane-words vi-mode-indicator)
 
 # User configuration
+if [[ $USER == "root" ]] {
+	export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+	export MANPATH="/usr/local/man:$MANPATH"
+}
 
-export PATH="/home/lm/google-cloud-sdk/bin:/home/lm/gocode/bin:/home/lm/bin:/home/lm/.tmuxifier/bin:/usr/local/bin:/usr/bin:/bin:/usr/games"
-export MANPATH="/usr/local/man:$MANPATH"
+if [[ $USER == "lm" ]] {
+	export PATH="/home/lm/google-cloud-sdk/bin:/home/lm/gocode/bin:/home/lm/bin:/home/lm/.tmuxifier/bin:/usr/local/bin:/usr/bin:/bin:/usr/games"
+	export MANPATH="/usr/local/man:$MANPATH"
+
+	# load keychain to manage SSH keys
+	if command -v keychain &>/dev/null; then
+		eval $(keychain --eval --nogui --quiet --agents ssh id_rsa id_ed25519 github_ed25519)
+	fi
+}
 
 source $ZSH/oh-my-zsh.sh
 
 set apt_pref='apt-get'
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
 
 export LESS="-aMRiFqX"
 export LESSOPEN="| /usr/bin/lesspipe %s";
 export LESSCLOSE="/usr/bin/lesspipe %s %s";
 
 setopt extended_glob
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# load keychain to manage SSH keys
-if command -v keychain &>/dev/null; then
-  eval $(keychain --eval --nogui --quiet --agents ssh id_rsa id_ed25519 github_ed25519)
-fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
