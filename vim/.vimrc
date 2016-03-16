@@ -23,6 +23,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'vim-scripts/info.vim'
 "Plugin 'ZoomWin'
 
 " All of your Plugins must be added before the following line
