@@ -84,6 +84,8 @@ export LESS="-aMRiFqX"
 export LESSOPEN="| /usr/bin/lesspipe %s";
 export LESSCLOSE="/usr/bin/lesspipe %s %s";
 
+export XAUTHORITY=$HOME/.Xauthority
+
 setopt extended_glob
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -94,6 +96,7 @@ setopt extended_glob
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gam="/home/lm/bin/gam/gam"
 
 # ZMV
 autoload -U zmv
@@ -102,3 +105,5 @@ alias zcp='noglob zmv -C'
 
 # aliases
 alias ducks='du -chs * | sort -h'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
