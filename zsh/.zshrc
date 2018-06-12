@@ -60,6 +60,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git gitfast history sudo colored-man-pages zsh_reload tmux-pane-words vi-mode-indicator)
 
+OS=`uname`
+
 # User configuration
 if [[ $USER == "root" ]] {
 	export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
